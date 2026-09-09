@@ -9,6 +9,85 @@
     <title>Personnel File // Rios Belmont</title>
 
     <style>
+        /* FELWINTER PORTRAIT */
+
+.portrait-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait-label {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+
+    border-bottom: 1px solid #292929;
+
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.portrait-frame {
+    width: 220px;
+    height: 280px;
+
+    overflow: hidden;
+
+    border: 1px solid #444;
+    background: #050505;
+
+    position: relative;
+}
+
+.felwinter-portrait {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%) contrast(1.1);
+
+    opacity: 0.9;
+
+    transition: 0.3s ease;
+}
+
+.felwinter-portrait:hover {
+    opacity: 1;
+    filter: grayscale(70%) contrast(1.15);
+}
+
+.portrait-frame::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,0.035) 4px
+        );
+}
+
+.portrait-caption {
+    margin-top: 10px;
+
+    color: #555;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    text-align: center;
+}
         /* GENSEC INSIGNIA */
 
 .profile-information {
@@ -205,89 +284,106 @@
             color: #b86a6a;
         }
 
-        /* PROFILE HEADER */
+     <!-- PROFILE HEADER -->
 
-        .profile-header {
-            border: 1px solid #303030;
-            background: #090909;
-            padding: 35px;
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 35px;
-            margin-bottom: 35px;
-        }
+<div class="profile-header">
 
-        .classification {
-            color: #777;
-            font-size: 11px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
+    <div class="profile-information">
 
-        .profile-name {
-            font-size: 46px;
-            color: #eee;
-            letter-spacing: 6px;
-            line-height: 1.2;
-        }
+        <div class="classification">
+            PERSONNEL RECORD // S66-GS-████
+        </div>
 
-        .codename {
-            color: #777;
-            font-size: 16px;
-            letter-spacing: 4px;
-            margin-top: 10px;
-        }
+        <h1 class="profile-name">
+            RIOS BELMONT
+        </h1>
 
-        .rank {
-            margin-top: 25px;
-            color: #aaa;
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
+        <div class="codename">
+            "FELWINTER"
+        </div>
 
-        .profile-status {
-            margin-top: 25px;
-            display: inline-block;
-            border: 1px solid #444;
-            padding: 7px 14px;
-            color: #aaa;
-            font-size: 10px;
-            letter-spacing: 2px;
-        }
+        <div class="rank">
+            FIRST LIEUTENANT // GENSEC DEPARTMENT LEADERSHIP
+        </div>
 
-        /* ID CARD */
+        <div class="profile-status">
+            ● ACTIVE DUTY
+        </div>
 
-        .id-card {
-            border: 1px solid #333;
-            background: #060606;
-            padding: 20px;
-            font-size: 11px;
-        }
+    </div>
 
-        .id-card-title {
-            border-bottom: 1px solid #292929;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            color: #888;
-            letter-spacing: 2px;
-        }
 
-        .id-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            border-bottom: 1px dotted #202020;
-            padding: 6px 0;
-        }
+    <!-- CURRENT APPEARANCE -->
 
-        .id-row span:first-child {
-            color: #555;
-        }
+    <div class="portrait-container">
 
-        .id-row span:last-child {
-            color: #aaa;
-            text-align: right;
-        }
+        <div class="portrait-label">
+            CURRENT APPEARANCE
+        </div>
+
+        <div class="portrait-frame">
+
+            <img
+                src="Rios during his monster days.png"
+                alt="Current appearance of Rios Belmont"
+                class="felwinter-portrait"
+            >
+
+        </div>
+
+        <div class="portrait-caption">
+            BELMONT, RIOS // "FELWINTER"
+        </div>
+
+    </div>
+
+
+    <!-- IDENTIFICATION -->
+
+    <div class="id-card">
+
+        <div class="id-card-title">
+            IDENTIFICATION
+        </div>
+
+        <div class="id-row">
+            <span>NAME</span>
+            <span>Rios Belmont</span>
+        </div>
+
+        <div class="id-row">
+            <span>CODENAME</span>
+            <span>Felwinter</span>
+        </div>
+
+        <div class="id-row">
+            <span>RANK</span>
+            <span>1LT</span>
+        </div>
+
+        <div class="id-row">
+            <span>DEPARTMENT</span>
+            <span>GENSEC</span>
+        </div>
+
+        <div class="id-row">
+            <span>LOCATION</span>
+            <span>Site-66</span>
+        </div>
+
+        <div class="id-row">
+            <span>AGE</span>
+            <span>40</span>
+        </div>
+
+        <div class="id-row">
+            <span>SEX</span>
+            <span>Male</span>
+        </div>
+
+    </div>
+
+</div>
 
         /* SECTIONS */
 
@@ -512,7 +608,22 @@
     width: 140px;
     height: 140px;
 }
+.profile-header {
+    border: 1px solid #303030;
+    background: #090909;
+    padding: 35px;
 
+    display: grid;
+
+    grid-template-columns:
+        minmax(250px, 1fr)
+        240px
+        280px;
+
+    gap: 35px;
+
+    margin-bottom: 35px;
+}
             .profile-header {
                 grid-template-columns: 1fr;
             }
@@ -536,7 +647,59 @@
         }
 
         @media (max-width: 500px) {
+@media (max-width: 1000px) {
 
+    .profile-header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portrait-container {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .id-card {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .profile-header {
+        grid-template-columns: 1fr;
+    }
+
+    .portrait-container {
+        grid-column: auto;
+        grid-row: auto;
+
+        border-top: 1px solid #292929;
+        padding-top: 25px;
+    }
+
+    .id-card {
+        grid-column: auto;
+    }
+
+    .portrait-frame {
+        width: 200px;
+        height: 250px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .status {
+        text-align: left;
+    }
+}
             main {
                 padding: 30px 15px 70px;
             }
