@@ -8,6 +8,31 @@
 
     <style>
 
+        /* =========================================
+           GENSEC / SITE-66 COLOR SYSTEM
+        ========================================= */
+
+        :root {
+            --bg-main: #040a16;
+            --bg-panel: #081326;
+            --bg-card: #061020;
+            --bg-header: #0c1b32;
+
+            --border: #1b355c;
+
+            --gensec-blue: #326dcc;
+            --gensec-light: #5d8fe5;
+
+            --text-main: #d5e2f5;
+            --text-secondary: #8291a8;
+            --text-dim: #4e5d72;
+        }
+
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,23 +44,39 @@
         }
 
         body {
-            background: #050505;
-            color: #b8b8b8;
+            background:
+                linear-gradient(
+                    rgba(4, 10, 22, 0.97),
+                    rgba(4, 10, 22, 0.97)
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(50, 109, 204, 0.025) 0px,
+                    rgba(50, 109, 204, 0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            color: var(--text-secondary);
+
             font-family: "Courier New", Courier, monospace;
+
             line-height: 1.7;
         }
 
         body::before {
             content: "";
+
             position: fixed;
             inset: 0;
+
             pointer-events: none;
 
             background:
                 repeating-linear-gradient(
                     0deg,
-                    rgba(255,255,255,0.015) 0px,
-                    rgba(255,255,255,0.015) 1px,
+                    rgba(93, 143, 229, 0.018) 0px,
+                    rgba(93, 143, 229, 0.018) 1px,
                     transparent 1px,
                     transparent 4px
                 );
@@ -57,18 +98,21 @@
 
             padding: 0 35px;
 
-            background: #080808;
+            background: #050d1a;
 
-            border-bottom: 1px solid #292929;
+            border-bottom: 1px solid var(--border);
 
             position: sticky;
             top: 0;
 
             z-index: 100;
+
+            box-shadow:
+                0 2px 15px rgba(0, 0, 0, 0.35);
         }
 
         .foundation-title {
-            color: #d0d0d0;
+            color: var(--text-main);
 
             font-size: 13px;
             letter-spacing: 3px;
@@ -76,14 +120,14 @@
         }
 
         .site-number {
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 11px;
             letter-spacing: 2px;
         }
 
         .security-status {
-            color: #777;
+            color: var(--text-secondary);
 
             font-size: 10px;
             letter-spacing: 2px;
@@ -108,7 +152,7 @@
         ========================================= */
 
         .breadcrumb {
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 10px;
 
@@ -118,13 +162,13 @@
         }
 
         .breadcrumb a {
-            color: #777;
+            color: var(--text-secondary);
 
             text-decoration: none;
         }
 
         .breadcrumb a:hover {
-            color: #bbb;
+            color: var(--gensec-light);
         }
 
 
@@ -145,13 +189,16 @@
 
             padding: 35px;
 
-            background: #090909;
+            background: var(--bg-panel);
 
-            border: 1px solid #303030;
+            border: 1px solid var(--border);
 
             position: relative;
 
             margin-bottom: 35px;
+
+            box-shadow:
+                0 0 25px rgba(0, 0, 0, 0.2);
         }
 
         .profile-header::before {
@@ -162,11 +209,11 @@
             top: -9px;
             left: 20px;
 
-            background: #050505;
+            background: var(--bg-main);
 
             padding: 0 10px;
 
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -187,7 +234,7 @@
         }
 
         .classification {
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 10px;
 
@@ -197,7 +244,7 @@
         }
 
         .profile-name {
-            color: #e0e0e0;
+            color: var(--text-main);
 
             font-size: clamp(30px, 4vw, 46px);
 
@@ -207,7 +254,7 @@
         }
 
         .codename {
-            color: #777;
+            color: var(--gensec-light);
 
             font-size: 16px;
 
@@ -217,7 +264,7 @@
         }
 
         .rank {
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 11px;
 
@@ -235,19 +282,24 @@
 
             padding: 7px 14px;
 
-            border: 1px solid #444;
+            border: 1px solid var(--gensec-blue);
 
-            color: #aaa;
+            color: var(--gensec-light);
 
             font-size: 10px;
 
             letter-spacing: 2px;
+
+            background: rgba(50, 109, 204, 0.06);
+
+            box-shadow:
+                0 0 10px rgba(50, 109, 204, 0.08);
         }
 
         .assignment {
             margin-top: 17px;
 
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -255,7 +307,7 @@
         }
 
         .assignment span {
-            color: #888;
+            color: var(--gensec-light);
         }
 
 
@@ -278,7 +330,7 @@
 
             text-align: center;
 
-            color: #666;
+            color: var(--text-secondary);
 
             font-size: 9px;
 
@@ -288,20 +340,23 @@
 
             margin-bottom: 12px;
 
-            border-bottom: 1px solid #292929;
+            border-bottom: 1px solid var(--border);
         }
 
         .portrait-frame {
             width: 210px;
             height: 250px;
 
-            background: #111;
+            background: var(--bg-card);
 
-            border: 1px solid #444;
+            border: 1px solid var(--border);
 
             overflow: hidden;
 
             position: relative;
+
+            box-shadow:
+                0 0 18px rgba(50, 109, 204, 0.08);
         }
 
         .felwinter-portrait {
@@ -339,7 +394,7 @@
                     to bottom,
                     transparent 0px,
                     transparent 3px,
-                    rgba(255,255,255,.035) 4px
+                    rgba(93, 143, 229, .035) 4px
                 );
         }
 
@@ -348,7 +403,7 @@
 
             text-align: center;
 
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 8px;
 
@@ -371,13 +426,13 @@
 
             justify-content: center;
 
-            border-left: 1px solid #292929;
+            border-left: 1px solid var(--border);
 
             padding-left: 25px;
         }
 
         .gensec-label {
-            color: #666;
+            color: var(--text-secondary);
 
             font-size: 9px;
 
@@ -395,7 +450,7 @@
             opacity: .92;
 
             filter:
-                drop-shadow(0 0 10px rgba(40,80,180,.12));
+                drop-shadow(0 0 10px rgba(50, 109, 204, .18));
 
             transition: .3s;
         }
@@ -404,13 +459,13 @@
             opacity: 1;
 
             filter:
-                drop-shadow(0 0 18px rgba(40,80,180,.3));
+                drop-shadow(0 0 18px rgba(50, 109, 204, .4));
         }
 
         .gensec-name {
             margin-top: 8px;
 
-            color: #888;
+            color: var(--text-secondary);
 
             font-size: 9px;
 
@@ -422,7 +477,7 @@
         }
 
         .gensec-site {
-            color: #555;
+            color: var(--text-dim);
 
             margin-top: 5px;
 
@@ -443,19 +498,22 @@
 
             padding: 20px;
 
-            background: #060606;
+            background: var(--bg-card);
 
-            border: 1px solid #333;
+            border: 1px solid var(--border);
+
+            box-shadow:
+                inset 0 0 15px rgba(50, 109, 204, 0.025);
         }
 
         .id-card-title {
-            color: #888;
+            color: var(--text-secondary);
 
             font-size: 10px;
 
             letter-spacing: 2px;
 
-            border-bottom: 1px solid #292929;
+            border-bottom: 1px solid var(--border);
 
             padding-bottom: 10px;
 
@@ -471,17 +529,17 @@
 
             padding: 7px 0;
 
-            border-bottom: 1px dotted #202020;
+            border-bottom: 1px dotted #162b4a;
 
             font-size: 10px;
         }
 
         .id-row span:first-child {
-            color: #555;
+            color: var(--text-dim);
         }
 
         .id-row span:last-child {
-            color: #aaa;
+            color: var(--text-secondary);
 
             text-align: right;
         }
@@ -492,13 +550,16 @@
         ========================================= */
 
         .section {
-            background: #090909;
+            background: var(--bg-panel);
 
-            border: 1px solid #292929;
+            border: 1px solid var(--border);
 
             margin-bottom: 30px;
 
             position: relative;
+
+            box-shadow:
+                0 0 20px rgba(0, 0, 0, 0.15);
         }
 
         .section-title {
@@ -510,11 +571,11 @@
 
             padding: 16px 22px;
 
-            background: #0c0c0c;
+            background: var(--bg-header);
 
-            border-bottom: 1px solid #292929;
+            border-bottom: 1px solid var(--border);
 
-            color: #aaa;
+            color: var(--text-main);
 
             font-size: 11px;
 
@@ -522,7 +583,7 @@
         }
 
         .section-number {
-            color: #444;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -546,19 +607,19 @@
 
             gap: 1px;
 
-            background: #292929;
+            background: var(--border);
 
-            border: 1px solid #292929;
+            border: 1px solid var(--border);
         }
 
         .info-item {
-            background: #080808;
+            background: var(--bg-card);
 
             padding: 16px 18px;
         }
 
         .info-label {
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -568,7 +629,7 @@
         }
 
         .info-value {
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 12px;
         }
@@ -579,7 +640,7 @@
         ========================================= */
 
         .biography {
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 13px;
 
@@ -589,7 +650,7 @@
         }
 
         .biography::first-letter {
-            color: #ddd;
+            color: var(--gensec-light);
 
             font-size: 32px;
 
@@ -617,15 +678,15 @@
         .physical-item {
             padding: 15px;
 
-            border-left: 2px solid #333;
+            border-left: 2px solid var(--gensec-blue);
 
-            background: #070707;
+            background: var(--bg-card);
         }
 
         .physical-item strong {
             display: block;
 
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -635,7 +696,7 @@
         }
 
         .physical-item span {
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 12px;
         }
@@ -646,13 +707,13 @@
         ========================================= */
 
         .evaluation {
-            border-left: 3px solid #444;
+            border-left: 3px solid var(--gensec-blue);
 
             padding: 25px;
 
-            background: #070707;
+            background: var(--bg-card);
 
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 12px;
 
@@ -660,7 +721,7 @@
         }
 
         .evaluation-header {
-            color: #777;
+            color: var(--gensec-light);
 
             font-size: 9px;
 
@@ -674,7 +735,7 @@
         }
 
         .therapist {
-            color: #666;
+            color: var(--text-dim);
 
             text-align: right;
 
@@ -702,19 +763,28 @@
         .family-member {
             padding: 17px;
 
-            background: #070707;
+            background: var(--bg-card);
 
-            border: 1px solid #252525;
+            border: 1px solid var(--border);
+
+            transition: .2s;
+        }
+
+        .family-member:hover {
+            border-color: var(--gensec-blue);
+
+            box-shadow:
+                0 0 12px rgba(50, 109, 204, 0.08);
         }
 
         .family-name {
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 12px;
         }
 
         .family-relation {
-            color: #555;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -724,7 +794,7 @@
         .family-status {
             margin-top: 8px;
 
-            color: #666;
+            color: var(--text-dim);
 
             font-size: 9px;
 
@@ -748,13 +818,13 @@
         .marking {
             padding: 20px;
 
-            background: #070707;
+            background: var(--bg-card);
 
-            border: 1px solid #292929;
+            border: 1px solid var(--border);
         }
 
         .marking-title {
-            color: #777;
+            color: var(--gensec-light);
 
             font-size: 9px;
 
@@ -764,11 +834,15 @@
         }
 
         .marking-text {
-            color: #aaa;
+            color: var(--text-secondary);
 
             font-size: 12px;
 
             line-height: 1.8;
+        }
+
+        .marking-text strong {
+            color: var(--text-main);
         }
 
 
@@ -777,25 +851,66 @@
         ========================================= */
 
         .warning {
-            border: 1px solid #3b3b3b;
+            border: 1px solid var(--border);
 
-            background: #080808;
+            background: var(--bg-header);
 
             padding: 20px;
 
             margin-top: 30px;
 
-            color: #777;
+            color: var(--text-secondary);
 
             font-size: 10px;
 
             letter-spacing: 1px;
 
             line-height: 1.8;
+
+            box-shadow:
+                inset 3px 0 0 var(--gensec-blue);
         }
 
         .warning strong {
-            color: #999;
+            color: var(--gensec-light);
+        }
+
+
+        /* =========================================
+           RELATIONS BUTTON
+        ========================================= */
+
+        .button {
+            display: inline-block;
+
+            margin-top: 5px;
+
+            padding: 11px 18px;
+
+            border: 1px solid var(--border);
+
+            background: var(--bg-panel);
+
+            color: var(--text-secondary);
+
+            text-decoration: none;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            transition: .2s;
+        }
+
+        .button:hover {
+            color: var(--text-main);
+
+            border-color: var(--gensec-blue);
+
+            background: var(--bg-header);
+
+            box-shadow:
+                0 0 12px rgba(50, 109, 204, 0.12);
         }
 
 
@@ -804,17 +919,19 @@
         ========================================= */
 
         footer {
-            border-top: 1px solid #292929;
+            border-top: 1px solid var(--border);
 
             padding: 30px 0;
 
             text-align: center;
 
-            color: #444;
+            color: var(--text-dim);
 
             font-size: 9px;
 
             letter-spacing: 2px;
+
+            background: #030812;
         }
 
 
@@ -829,9 +946,11 @@
 
             padding: 9px 15px;
 
-            border: 1px solid #333;
+            border: 1px solid var(--border);
 
-            color: #777;
+            color: var(--text-secondary);
+
+            background: var(--bg-panel);
 
             text-decoration: none;
 
@@ -843,11 +962,14 @@
         }
 
         .back-button:hover {
-            color: #ccc;
+            color: var(--text-main);
 
-            border-color: #666;
+            border-color: var(--gensec-blue);
 
-            background: #0d0d0d;
+            background: var(--bg-header);
+
+            box-shadow:
+                0 0 12px rgba(50, 109, 204, 0.1);
         }
 
 
@@ -878,7 +1000,7 @@
             }
 
             .portrait-container {
-                border-top: 1px solid #292929;
+                border-top: 1px solid var(--border);
 
                 padding-top: 25px;
             }
@@ -886,7 +1008,7 @@
             .gensec-container {
                 border-left: none;
 
-                border-top: 1px solid #292929;
+                border-top: 1px solid var(--border);
 
                 padding-left: 0;
 
@@ -1510,7 +1632,6 @@
                     PRE-SCREENING EVALUATION // PERSONNEL PSYCHOLOGY
                 </div>
 
-
                 <p>
                     Pre-screening of Rios confirmed what was already shown, he is stubborn to a fault and will very often say his mind not caring about the consequences.
                 </p>
@@ -1544,7 +1665,6 @@
                 <p>
                     Overall while he is fit for active duty, he is to be watched to ensure his attitude or psyche does not slip. Should it, he is to be sent for immediate psychological testing and/or therapy.
                 </p>
-
 
                 <div class="therapist">
                     — Therapist REDACTED
@@ -1642,11 +1762,15 @@
 
     </section>
 
-           <a href="relations.html" class="button">
-    Opinions / Communications / Relations
-</a>
+
+    <!-- RELATIONS PAGE -->
+
+    <a href="relations.html" class="button">
+        Opinions / Communications / Relations
+    </a>
 
 </main>
+
 
 <!-- =========================================
      FOOTER
@@ -1663,8 +1787,7 @@
     <br><br>
 
     UNAUTHORIZED ACCESS IS PROHIBITED
-    
-    
+
 </footer>
 
 
