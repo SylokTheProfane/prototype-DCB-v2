@@ -1,1 +1,1112 @@
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personnel File // Rios Belmont</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: #cfcfcf;
+            font-family: "Courier New", monospace;
+            line-height: 1.7;
+        }
+
+        /* CRT EFFECT */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,0.025) 0px,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+            z-index: 999;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(
+                ellipse at center,
+                transparent 45%,
+                rgba(0,0,0,0.65) 100%
+            );
+            z-index: 998;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #080808;
+            border-bottom: 1px solid #292929;
+            padding: 18px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .foundation-title {
+            color: #eee;
+            font-size: 15px;
+            letter-spacing: 3px;
+        }
+
+        .site-number {
+            color: #666;
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .status {
+            font-size: 11px;
+            color: #777;
+            text-align: right;
+        }
+
+        .status span {
+            color: #aaa;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #090909;
+            border-bottom: 1px solid #222;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+        }
+
+        nav a {
+            display: block;
+            padding: 13px 18px;
+            color: #777;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background: #111;
+        }
+
+        /* MAIN */
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 25px 100px;
+        }
+
+        /* WARNING */
+
+        .warning {
+            border: 1px solid #3d1717;
+            background: #0c0606;
+            padding: 15px 20px;
+            margin-bottom: 35px;
+            color: #9d5959;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .warning strong {
+            color: #b86a6a;
+        }
+
+        /* PROFILE HEADER */
+
+        .profile-header {
+            border: 1px solid #303030;
+            background: #090909;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 35px;
+            margin-bottom: 35px;
+        }
+
+        .classification {
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .profile-name {
+            font-size: 46px;
+            color: #eee;
+            letter-spacing: 6px;
+            line-height: 1.2;
+        }
+
+        .codename {
+            color: #777;
+            font-size: 16px;
+            letter-spacing: 4px;
+            margin-top: 10px;
+        }
+
+        .rank {
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .profile-status {
+            margin-top: 25px;
+            display: inline-block;
+            border: 1px solid #444;
+            padding: 7px 14px;
+            color: #aaa;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* ID CARD */
+
+        .id-card {
+            border: 1px solid #333;
+            background: #060606;
+            padding: 20px;
+            font-size: 11px;
+        }
+
+        .id-card-title {
+            border-bottom: 1px solid #292929;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .id-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            border-bottom: 1px dotted #202020;
+            padding: 6px 0;
+        }
+
+        .id-row span:first-child {
+            color: #555;
+        }
+
+        .id-row span:last-child {
+            color: #aaa;
+            text-align: right;
+        }
+
+        /* SECTIONS */
+
+        section {
+            margin-bottom: 35px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-title {
+            border-left: 3px solid #555;
+            border-bottom: 1px solid #292929;
+            padding: 12px 15px;
+            background: #090909;
+            color: #ddd;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            border: 1px solid #252525;
+            background: #080808;
+            padding: 25px;
+        }
+
+        /* INFORMATION GRID */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0 35px;
+        }
+
+        .info-item {
+            border-bottom: 1px dotted #222;
+            padding: 9px 0;
+            font-size: 12px;
+        }
+
+        .label {
+            color: #555;
+        }
+
+        .value {
+            color: #bbb;
+        }
+
+        /* SERVICE RECORD */
+
+        .service-entry {
+            border-left: 2px solid #333;
+            padding: 5px 0 5px 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-title {
+            color: #ddd;
+            letter-spacing: 1px;
+        }
+
+        .service-description {
+            color: #777;
+            font-size: 11px;
+        }
+
+        /* BIOGRAPHY */
+
+        .biography {
+            color: #aaa;
+            font-size: 13px;
+            text-align: justify;
+        }
+
+        .biography p {
+            margin-bottom: 18px;
+        }
+
+        .biography p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* PSYCHOLOGICAL */
+
+        .psych-warning {
+            border: 1px solid #332020;
+            background: #0b0707;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #8d6969;
+            font-size: 11px;
+        }
+
+        .evaluation {
+            color: #aaa;
+            font-size: 12px;
+            text-align: justify;
+        }
+
+        .evaluation strong {
+            color: #ddd;
+        }
+
+        .therapist {
+            margin-top: 25px;
+            border-top: 1px solid #292929;
+            padding-top: 15px;
+            color: #666;
+            font-size: 11px;
+        }
+
+        /* FAMILY */
+
+        .family-member {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #222;
+            padding: 12px 5px;
+            font-size: 12px;
+        }
+
+        .family-name {
+            color: #bbb;
+        }
+
+        .active {
+            color: #777;
+        }
+
+        .deceased {
+            color: #744;
+        }
+
+        /* PHYSICAL MARKINGS */
+
+        .marking-box {
+            border: 1px solid #222;
+            background: #060606;
+            padding: 18px;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .marking-box:first-child {
+            margin-top: 0;
+        }
+
+        .marking-title {
+            color: #777;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* CLEARANCE */
+
+        .clearance {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #333;
+            background: #070707;
+        }
+
+        .clearance-level {
+            font-size: 40px;
+            color: #ddd;
+            letter-spacing: 8px;
+        }
+
+        .clearance-text {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #292929;
+            background: #070707;
+            padding: 25px;
+            text-align: center;
+            color: #444;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* BACK BUTTON */
+
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 22px;
+            border: 1px solid #333;
+            color: #777;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            border-color: #888;
+            color: #eee;
+            background: #111;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .profile-header {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-name {
+                font-size: 34px;
+            }
+
+            .header-container {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .status {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            main {
+                padding: 30px 15px 70px;
+            }
+
+            .profile-header {
+                padding: 25px;
+            }
+
+            .section-content {
+                padding: 18px;
+            }
+
+            .profile-name {
+                font-size: 27px;
+                letter-spacing: 4px;
+            }
+
+            .profile-header {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-container">
+
+        <div>
+            <div class="foundation-title">
+                SCP FOUNDATION // SITE-66
+            </div>
+
+            <div class="site-number">
+                GENERAL SECURITY DEPARTMENT // PERSONNEL DATABASE
+            </div>
+        </div>
+
+        <div class="status">
+            NETWORK: <span>SECURE</span><br>
+            DATABASE: <span>ONLINE</span><br>
+            SITE: <span>66</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<nav>
+
+    <ul>
+        <li><a href="#overview">OVERVIEW</a></li>
+        <li><a href="#physical">PHYSICAL</a></li>
+        <li><a href="#service">SERVICE RECORD</a></li>
+        <li><a href="#biography">BIOGRAPHY</a></li>
+        <li><a href="#psychology">PSYCHOLOGICAL</a></li>
+        <li><a href="#family">FAMILY</a></li>
+        <li><a href="#clearance">CLEARANCE</a></li>
+    </ul>
+
+</nav>
+
+
+<main>
+
+    <!-- SECURITY WARNING -->
+
+    <div class="warning">
+
+        <strong>WARNING:</strong>
+        The information contained within this personnel record is classified.
+        Unauthorized access, reproduction, or distribution of Foundation personnel
+        information is strictly prohibited.
+
+    </div>
+
+
+    <!-- PROFILE HEADER -->
+
+    <div class="profile-header">
+
+        <div>
+
+            <div class="classification">
+                PERSONNEL RECORD // S66-GS-████
+            </div>
+
+            <h1 class="profile-name">
+                RIOS BELMONT
+            </h1>
+
+            <div class="codename">
+                "FELWINTER"
+            </div>
+
+            <div class="rank">
+                FIRST LIEUTENANT // GENSEC DEPARTMENT LEADERSHIP
+            </div>
+
+            <div class="profile-status">
+                ● ACTIVE DUTY
+            </div>
+
+        </div>
+
+
+        <div class="id-card">
+
+            <div class="id-card-title">
+                IDENTIFICATION
+            </div>
+
+            <div class="id-row">
+                <span>NAME</span>
+                <span>Rios Belmont</span>
+            </div>
+
+            <div class="id-row">
+                <span>CODENAME</span>
+                <span>Felwinter</span>
+            </div>
+
+            <div class="id-row">
+                <span>RANK</span>
+                <span>1LT</span>
+            </div>
+
+            <div class="id-row">
+                <span>DEPARTMENT</span>
+                <span>GENSEC</span>
+            </div>
+
+            <div class="id-row">
+                <span>LOCATION</span>
+                <span>Site-66</span>
+            </div>
+
+            <div class="id-row">
+                <span>AGE</span>
+                <span>40</span>
+            </div>
+
+            <div class="id-row">
+                <span>SEX</span>
+                <span>Male</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- OVERVIEW -->
+
+    <section id="overview">
+
+        <div class="section-title">
+            // 01 — PERSONNEL OVERVIEW
+        </div>
+
+        <div class="section-content">
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="label">Character Name:</span>
+                    <span class="value">Rios Belmont</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Codename:</span>
+                    <span class="value">"Felwinter"</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Sex:</span>
+                    <span class="value">Male</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Age:</span>
+                    <span class="value">40</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Date of Birth:</span>
+                    <span class="value">08-04-1986</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Birthplace:</span>
+                    <span class="value">Manitoulin Island, Canada</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Occupation:</span>
+                    <span class="value">GENSEC Department Leadership</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Assignment:</span>
+                    <span class="value">Site-66</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Clearance Level:</span>
+                    <span class="value">Level 3</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Relationship Status:</span>
+                    <span class="value">Single — Widower</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHYSICAL -->
+
+    <section id="physical">
+
+        <div class="section-title">
+            // 02 — PHYSICAL PROFILE
+        </div>
+
+        <div class="section-content">
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="label">Height:</span>
+                    <span class="value">6'4" / 193 cm</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Weight:</span>
+                    <span class="value">240 lbs</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Blood Type:</span>
+                    <span class="value">A POS</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Hair:</span>
+                    <span class="value">Black with strands of grey</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Right Eye:</span>
+                    <span class="value">Blue</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Left Eye:</span>
+                    <span class="value">Glass / Prosthetic</span>
+                </div>
+
+            </div>
+
+
+            <div class="marking-box">
+
+                <div class="marking-title">
+                    DOCUMENTED WOUNDS
+                </div>
+
+                Claw scars covering the left eye. Various scars are present
+                across the torso.
+
+            </div>
+
+
+            <div class="marking-box">
+
+                <div class="marking-title">
+                    BODY MARKINGS
+                </div>
+
+                Wolf head brand located on the left breast.
+
+            </div>
+
+
+            <div class="marking-box">
+
+                <div class="marking-title">
+                    TATTOOS
+                </div>
+
+                Tattoo located on the left arm depicting a "Broadway"
+                poker hand. The Ace is replaced by a Five-seveN pistol.
+
+                <br><br>
+
+                The words:
+
+                <br>
+
+                <strong>"Folding is never an option"</strong>
+
+                <br>
+
+                are displayed on a scroll wrapped around the design.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICE -->
+
+    <section id="service">
+
+        <div class="section-title">
+            // 03 — SERVICE RECORD
+        </div>
+
+        <div class="section-content">
+
+            <div class="service-entry">
+
+                <div class="service-title">
+                    CANADIAN MILITARY
+                </div>
+
+                <div class="service-description">
+                    Former Weapons Technician.
+                </div>
+
+            </div>
+
+
+            <div class="service-entry">
+
+                <div class="service-title">
+                    JOINT TASK FORCE 2
+                </div>
+
+                <div class="service-description">
+                    Former JTF2 Operator.
+                </div>
+
+            </div>
+
+
+            <div class="service-entry">
+
+                <div class="service-title">
+                    SCP FOUNDATION // SITE-66
+                </div>
+
+                <div class="service-description">
+                    Current assignment. General Security Department Leadership.
+                    Current rank: First Lieutenant.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIOGRAPHY -->
+
+    <section id="biography">
+
+        <div class="section-title">
+            // 04 — BIOGRAPHICAL RECORD
+        </div>
+
+        <div class="section-content biography">
+
+            <p>
+                Rios Belmont was born on Manitoulin Island in Canada,
+                growing up alone by the time he turned 12 after his father
+                abandoned him and his mother died due to an undisclosed
+                sickness.
+            </p>
+
+            <p>
+                Growing up on the streets, Rios survived by stealing
+                whatever he could until he turned 16, at which point he
+                lied about his age and joined the Canadian Military.
+            </p>
+
+            <p>
+                He quickly became an efficient soldier before being
+                scouted for JTF2, where his life truly took a turn.
+            </p>
+
+            <p>
+                Upon arriving in JTF2, Rios was subjected to immense
+                teasing during his training due to his rough upbringing.
+                The pressure built over time until he eventually snapped
+                during a mission in Bosnia.
+            </p>
+
+            <p>
+                During the incident, Rios severely wounded the operators
+                he had been deployed with before subsequently aiding local
+                Bosnian rebel forces in their efforts against Serbian
+                forces attacking Bosnia.
+            </p>
+
+            <p>
+                He was eventually detained by United Nations Peacekeepers
+                on the ground and transported back to Canada.
+            </p>
+
+            <p>
+                While imprisoned, Rios was found guilty and charged with
+                Treason and Aiding &amp; Abetting.
+            </p>
+
+            <p>
+                While imprisoned and awaiting further punishment, he was
+                approached by an individual representing the Foundation.
+                The representative offered Rios an opportunity to put his
+                skills to use elsewhere.
+            </p>
+
+            <p>
+                Rios accepted the proposal.
+            </p>
+
+            <p>
+                He subsequently found himself assigned to Site-66.
+                Now tasked with battling anomalies that he himself
+                struggles to understand, Rios continues attempting to
+                improve himself while finding the process increasingly
+                difficult.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PSYCHOLOGICAL -->
+
+    <section id="psychology">
+
+        <div class="section-title">
+            // 05 — PSYCHOLOGICAL EVALUATION
+        </div>
+
+        <div class="section-content">
+
+            <div class="psych-warning">
+
+                <strong>PSYCHOLOGICAL FILE — RESTRICTED</strong>
+                <br>
+                Personnel are advised against discussing sensitive
+                personal subjects with the individual without appropriate
+                authorization.
+
+            </div>
+
+
+            <div class="evaluation">
+
+                <p>
+                    <strong>Pre-screening of Rios confirmed what was
+                    already shown:</strong> he is stubborn to a fault and
+                    will very often say his mind, not caring about the
+                    consequences.
+                </p>
+
+                <br>
+
+                <p>
+                    Paired with his insomnia and paranoia, this makes him
+                    a truly haunting person to ever anger. When angered,
+                    however, he exhibits attitudes and actions almost akin
+                    to a raging bull, making him far easier to predict.
+                </p>
+
+                <br>
+
+                <p>
+                    Whenever he is in mental distress, he will often
+                    subconsciously thumb over his wife's dog tags.
+                    When questioned about this behavior, he stated that
+                    they were his old dog tags from before he was with
+                    the Foundation.
+                </p>
+
+                <br>
+
+                <p>
+                    When questioned regarding what happened to his wife,
+                    Rios simply stated:
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>
+                        "She died in a bad way, was my fault...
+                        should've been careful."
+                    </strong>
+                </p>
+
+                <br>
+
+                <p>
+                    Recommendation is to not bring up his wife and instead
+                    try to focus him on his daughter, who he loves and
+                    cares for with all his heart.
+                </p>
+
+                <br>
+
+                <p>
+                    Overall, while he is fit for active duty, he is to be
+                    watched to ensure his attitude or psyche does not slip.
+                    Should it, he is to be sent for immediate psychological
+                    testing and/or therapy.
+                </p>
+
+            </div>
+
+
+            <div class="therapist">
+
+                — Therapist <strong>[REDACTED]</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAMILY -->
+
+    <section id="family">
+
+        <div class="section-title">
+            // 06 — FAMILY RECORD
+        </div>
+
+        <div class="section-content">
+
+            <div class="family-member">
+
+                <span class="family-name">
+                    Elise Belmont — Daughter
+                </span>
+
+                <span class="active">
+                    [ ACTIVE ]
+                </span>
+
+            </div>
+
+
+            <div class="family-member">
+
+                <span class="family-name">
+                    Klara Frenken — Wife
+                </span>
+
+                <span class="deceased">
+                    [ DECEASED ]
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CLEARANCE -->
+
+    <section id="clearance">
+
+        <div class="section-title">
+            // 07 — SECURITY CLEARANCE
+        </div>
+
+        <div class="section-content">
+
+            <div class="clearance">
+
+                <div class="clearance-level">
+                    LEVEL 3
+                </div>
+
+                <div class="clearance-text">
+                    FOUNDATION PERSONNEL SECURITY CLEARANCE
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RETURN -->
+
+    <a href="index.html" class="back-button">
+        &lt; RETURN TO SITE-66 TERMINAL
+    </a>
+
+</main>
+
+
+<footer>
+
+    SCP FOUNDATION // SITE-66<br>
+    GENERAL SECURITY DEPARTMENT<br><br>
+
+    THIS DATABASE IS PROPERTY OF THE SCP FOUNDATION.
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+</body>
+</html>
+```
