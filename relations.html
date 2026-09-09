@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SITE-66 // FELWINTER // RELATIONS</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background:
+                linear-gradient(rgba(5, 7, 10, 0.96), rgba(5, 7, 10, 0.96)),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255,255,255,0.015) 4px
+                );
+            color: #d5d8dc;
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           SECURITY BAR
+        ========================= */
+
+        .security-bar {
+            height: 5px;
+            background: #285bc2;
+            box-shadow: 0 0 18px rgba(40, 91, 194, 0.65);
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #0b0e12;
+            border-bottom: 1px solid #242a31;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .gensec-logo {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+        }
+
+        .site-title {
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        .site-subtitle {
+            color: #6f7781;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .clearance {
+            border: 1px solid #285bc2;
+            color: #6e98ec;
+            padding: 9px 14px;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            background: #090b0e;
+            border-bottom: 1px solid #20252b;
+            padding: 0 6%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav a {
+            display: block;
+            color: #69717b;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            padding: 15px 22px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+            background: #11151a;
+        }
+
+        nav a.active {
+            color: white;
+            background: #13171c;
+            border-bottom: 2px solid #2d63cf;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: 88%;
+            max-width: 1150px;
+            margin: 45px auto 80px;
+        }
+
+        .classification {
+            color: #4f80dc;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            color: #f1f1f1;
+            font-size: 34px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .codename {
+            color: #6d94df;
+            font-size: 13px;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+
+        .intro {
+            color: #737b84;
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-top: 14px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: #242a31;
+            margin: 30px 0;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            border: 1px solid #252b32;
+            background: #0d1014;
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            background: #11151a;
+            border-bottom: 1px solid #252b32;
+            padding: 17px 22px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .section-number {
+            color: #3266ca;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .section-header h2 {
+            color: #e7e8ea;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .section-content {
+            padding: 25px;
+        }
+
+        /* =========================
+           OPINIONS
+        ========================= */
+
+        .opinion {
+            border-left: 3px solid #285bc2;
+            background: #090c10;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .opinion:last-child {
+            margin-bottom: 0;
+        }
+
+        .opinion-title {
+            color: #6d94e4;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 9px;
+        }
+
+        .opinion p {
+            color: #b9bec4;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           COMMUNICATIONS
+        ========================= */
+
+        .communication {
+            background: #090c10;
+            border: 1px solid #242a31;
+            padding: 20px;
+            margin-bottom: 13px;
+        }
+
+        .communication:last-child {
+            margin-bottom: 0;
+        }
+
+        .communication-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #1e242a;
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .communication-type {
+            color: #5f8bdf;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .communication-status {
+            color: #626a74;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        .communication p {
+            color: #aeb4bb;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           RELATIONS
+        ========================= */
+
+        .relation {
+            background: #090c10;
+            border: 1px solid #252b32;
+            margin-bottom: 15px;
+            padding: 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .relation:last-child {
+            margin-bottom: 0;
+        }
+
+        .relation::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: #285bc2;
+        }
+
+        .relation-name {
+            color: #f0f0f0;
+            font-size: 17px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .relation-role {
+            color: #638bd8;
+            font-size: 9px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .relation-quote {
+            color: #c0c4c9;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 1.9;
+            padding-left: 5px;
+        }
+
+        .quote-mark {
+            color: #285bc2;
+            font-size: 24px;
+            font-weight: bold;
+            vertical-align: top;
+            margin-right: 5px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #242930;
+            background: #080a0d;
+            padding: 25px 6%;
+            color: #535b64;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-content {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-warning {
+            color: #747c85;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 15px 4%;
+            }
+
+            .gensec-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .site-title {
+                font-size: 14px;
+            }
+
+            .clearance {
+                display: none;
+            }
+
+            nav {
+                padding: 0 3%;
+                overflow-x: auto;
+            }
+
+            nav ul {
+                min-width: max-content;
+            }
+
+            nav a {
+                padding: 14px;
+            }
+
+            main {
+                width: 92%;
+                margin-top: 30px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .section-content {
+                padding: 17px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         SECURITY BAR
+    ========================= -->
+
+    <div class="security-bar"></div>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <div class="header-left">
+
+            <!--
+                Put the circular GENSEC logo here:
+                images/gensec-logo.png
+            -->
+
+            <img
+                src="images/gensec-logo.png"
+                alt="GENSEC Logo"
+                class="gensec-logo"
+            >
+
+            <div>
+
+                <div class="site-title">
+                    SITE-66 // GENSEC
+                </div>
+
+                <div class="site-subtitle">
+                    PERSONNEL RELATIONS DATABASE
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="clearance">
+            CLEARANCE LEVEL 3
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    SITE-66
+                </a>
+            </li>
+
+            <li>
+                <a href="personnel.html">
+                    PERSONNEL
+                </a>
+            </li>
+
+            <li>
+                <a href="relations.html" class="active">
+                    RELATIONS
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main>
+
+        <div class="classification">
+            GENSEC DEPARTMENT LEADERSHIP // INTERNAL RECORD
+        </div>
+
+        <h1>
+            Rios Belmont
+        </h1>
+
+        <div class="codename">
+            1LT // "FELWINTER"
+        </div>
+
+        <p class="intro">
+            Supplemental personnel documentation concerning the personal
+            opinions, communications and interpersonal relationships of
+            Rios Belmont, currently assigned to GENSEC Department Leadership
+            at Site-66.
+        </p>
+
+        <div class="divider"></div>
+
+
+        <!-- =====================================================
+             SECTION 01 — OPINIONS
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <h2>
+                    OPINIONS
+                </h2>
+
+            </div>
+
+            <div class="section-content">
+
+                <div class="opinion">
+
+                    <div class="opinion-title">
+                        GENERAL ASSESSMENT
+                    </div>
+
+                    <p>
+                        Belmont is known for being exceptionally direct in
+                        expressing his opinions. He has little tolerance for
+                        unnecessary formalities and will frequently speak his
+                        mind regardless of rank or potential consequences.
+                    </p>
+
+                </div>
+
+                <div class="opinion">
+
+                    <div class="opinion-title">
+                        LEADERSHIP PHILOSOPHY
+                    </div>
+
+                    <p>
+                        His approach to leadership is heavily influenced by
+                        his own experiences. Belmont places considerable value
+                        on mentorship, loyalty and proving oneself through
+                        action rather than words.
+                    </p>
+
+                </div>
+
+                <div class="opinion">
+
+                    <div class="opinion-title">
+                        PERSONAL BELIEF
+                    </div>
+
+                    <p>
+                        Belmont appears to believe that those under his
+                        guidance should eventually surpass him. His tendency
+                        to mentor younger personnel suggests that he considers
+                        experience something that should be passed down rather
+                        than retained.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 02 — COMMUNICATIONS
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <h2>
+                    COMMUNICATIONS
+                </h2>
+
+            </div>
+
+            <div class="section-content">
+
+                <div class="communication">
+
+                    <div class="communication-header">
+
+                        <span class="communication-type">
+                            GENSEC // INTERNAL
+                        </span>
+
+                        <span class="communication-status">
+                            ACTIVE
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Belmont maintains a direct communication style with
+                        personnel under his command. While often abrasive,
+                        his communications generally indicate a desire to
+                        prepare personnel for increased responsibility.
+                    </p>
+
+                </div>
+
+
+                <div class="communication">
+
+                    <div class="communication-header">
+
+                        <span class="communication-type">
+                            MENTORSHIP // PERSONNEL
+                        </span>
+
+                        <span class="communication-status">
+                            RESTRICTED
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Multiple personnel appear to maintain mentorship
+                        relationships with Belmont. His communications with
+                        these individuals frequently contain advice regarding
+                        leadership, responsibility and the development of
+                        future GENSEC command staff.
+                    </p>
+
+                </div>
+
+
+                <div class="communication">
+
+                    <div class="communication-header">
+
+                        <span class="communication-type">
+                            PERSONAL // ARCHIVED
+                        </span>
+
+                        <span class="communication-status">
+                            LEVEL 3
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Several personal statements have been retained within
+                        this record due to their relevance to Belmont's
+                        interpersonal relationships and psychological profile.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 03 — RELATIONS
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <h2>
+                    RELATIONS
+                </h2>
+
+            </div>
+
+            <div class="section-content">
+
+
+                <!-- HADES -->
+
+                <div class="relation">
+
+                    <div class="relation-name">
+                        "Hades"
+                    </div>
+
+                    <div class="relation-role">
+                        MENTOR // HIGHLY REGARDED
+                    </div>
+
+                    <div class="relation-quote">
+                        <span class="quote-mark">"</span>
+                        My mentor, the person who I look to for guidance.
+                    </div>
+
+                </div>
+
+
+                <!-- KAIROS -->
+
+                <div class="relation">
+
+                    <div class="relation-name">
+                        "Kairos"
+                    </div>
+
+                    <div class="relation-role">
+                        BROTHER // TRUSTED ASSOCIATE
+                    </div>
+
+                    <div class="relation-quote">
+                        <span class="quote-mark">"</span>
+                        You've been at my side despite how hard I try and
+                        push you away... preciate it brother, one day we'll
+                        take a tour round Canada.
+                    </div>
+
+                </div>
+
+
+                <!-- AQUILA -->
+
+                <div class="relation">
+
+                    <div class="relation-name">
+                        "Aquila"
+                    </div>
+
+                    <div class="relation-role">
+                        MENTEE // GENSEC PERSONNEL
+                    </div>
+
+                    <div class="relation-quote">
+                        <span class="quote-mark">"</span>
+                        You remind me of me, a younger me who isn't as bitter.
+                        I'll mentor you best I can, kid. Look after Mercer,
+                        he'll be a great Co-Lead. Mentor him as I did you.
+                    </div>
+
+                </div>
+
+
+                <!-- MERCER -->
+
+                <div class="relation">
+
+                    <div class="relation-name">
+                        "Mercer"
+                    </div>
+
+                    <div class="relation-role">
+                        MENTEE // VANGUARD
+                    </div>
+
+                    <div class="relation-quote">
+                        <span class="quote-mark">"</span>
+                        You got a spark of tenacity, remind me of myself as
+                        well. Look after Aquila and he'll look after you.
+                        You'll be a great Vanguard Co-Lead and eventually Lead.
+                    </div>
+
+                </div>
+
+
+                <!-- METZILI -->
+
+                <div class="relation">
+
+                    <div class="relation-name">
+                        "Metzili"
+                    </div>
+
+                    <div class="relation-role">
+                        INDEBTED ALLY // HIGH TRUST
+                    </div>
+
+                    <div class="relation-quote">
+                        <span class="quote-mark">"</span>
+                        I owe you a life debt. You ever need anything at all,
+                        I've got your back. Thank you...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                SITE-66 // GENSEC DATABASE
+            </div>
+
+            <div class="footer-warning">
+                UNAUTHORIZED ACCESS WILL BE LOGGED
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
