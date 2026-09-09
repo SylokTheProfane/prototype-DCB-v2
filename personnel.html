@@ -9,6 +9,57 @@
     <title>Personnel File // Rios Belmont</title>
 
     <style>
+        /* GENSEC INSIGNIA */
+
+.profile-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gensec-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-left: 1px solid #292929;
+    padding-left: 30px;
+}
+
+.gensec-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 8px rgba(40, 80, 180, 0.18));
+
+    opacity: 0.92;
+
+    transition: 0.3s ease;
+}
+
+.gensec-logo:hover {
+    opacity: 1;
+    filter:
+        drop-shadow(0 0 15px rgba(40, 80, 180, 0.35));
+}
+
+.logo-caption {
+    margin-top: 12px;
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.logo-site {
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
         * {
             box-sizing: border-box;
             margin: 0;
@@ -450,6 +501,17 @@
         /* RESPONSIVE */
 
         @media (max-width: 800px) {
+            .gensec-logo-container {
+    border-left: none;
+    border-top: 1px solid #292929;
+    padding-left: 0;
+    padding-top: 25px;
+}
+
+.gensec-logo {
+    width: 140px;
+    height: 140px;
+}
 
             .profile-header {
                 grid-template-columns: 1fr;
@@ -557,31 +619,43 @@
 
     <!-- PROFILE HEADER -->
 
-    <div class="profile-header">
+ <div class="profile-header">
 
-        <div>
+    <div class="profile-information">
 
-            <div class="classification">
-                PERSONNEL RECORD // S66-GS-████
-            </div>
-
-            <h1 class="profile-name">
-                RIOS BELMONT
-            </h1>
-
-            <div class="codename">
-                "FELWINTER"
-            </div>
-
-            <div class="rank">
-                FIRST LIEUTENANT // GENSEC DEPARTMENT LEADERSHIP
-            </div>
-
-            <div class="profile-status">
-                ● ACTIVE DUTY
-            </div>
-
+        <div class="classification">
+            PERSONNEL RECORD // S66-GS-████
         </div>
+
+        <h1 class="profile-name">
+            RIOS BELMONT
+        </h1>
+
+        <div class="codename">
+            "FELWINTER"
+        </div>
+
+        <div class="rank">
+            FIRST LIEUTENANT // GENSEC DEPARTMENT LEADERSHIP
+        </div>
+
+        <div class="profile-status">
+            ● ACTIVE DUTY
+        </div>
+
+    </div>
+
+    <div class="gensec-logo-container">
+        <img src="gensec.png" alt="GENSEC Department Insignia" class="gensec-logo">
+
+        <div class="logo-caption">
+            GENERAL SECURITY DEPARTMENT
+        </div>
+
+        <div class="logo-site">
+            SITE-66
+        </div>
+    </div>
 
 
         <div class="id-card">
