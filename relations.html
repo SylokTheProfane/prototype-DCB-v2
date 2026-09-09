@@ -4,437 +4,776 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SITE-66 // FELWINTER // RELATIONS</title>
+    <title>SITE-66 // RIOS BELMONT // RELATIONS</title>
 
     <style>
+
+        /* =====================================================
+           SITE-66 COLOR SYSTEM
+        ===================================================== */
+
+        :root {
+            --bg-main: #040a16;
+            --bg-panel: #081326;
+            --bg-card: #061020;
+            --bg-header: #0c1b32;
+
+            --border: #1b355c;
+
+            --gensec-blue: #326dcc;
+            --gensec-light: #5d8fe5;
+
+            --text-main: #d5e2f5;
+            --text-secondary: #8291a8;
+            --text-dim: #4e5d72;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
         body {
+
             background:
-                linear-gradient(rgba(5, 7, 10, 0.96), rgba(5, 7, 10, 0.96)),
+                linear-gradient(
+                    rgba(4, 10, 22, 0.97),
+                    rgba(4, 10, 22, 0.97)
+                ),
                 repeating-linear-gradient(
                     0deg,
                     transparent,
                     transparent 3px,
-                    rgba(255,255,255,0.015) 4px
+                    rgba(80, 130, 220, 0.025) 4px
                 );
-            color: #d5d8dc;
-            font-family: "Segoe UI", Arial, sans-serif;
+
+            color: var(--text-main);
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
             min-height: 100vh;
         }
 
-        /* =========================
+
+        /* =====================================================
            SECURITY BAR
-        ========================= */
+        ===================================================== */
 
         .security-bar {
+
             height: 5px;
-            background: #285bc2;
-            box-shadow: 0 0 18px rgba(40, 91, 194, 0.65);
+
+            background: var(--gensec-blue);
+
+            box-shadow:
+                0 0 18px
+                rgba(50, 109, 204, 0.65);
         }
 
-        /* =========================
+
+        /* =====================================================
            HEADER
-        ========================= */
+        ===================================================== */
 
         header {
-            background: #0b0e12;
-            border-bottom: 1px solid #242a31;
-            padding: 18px 6%;
+
+            background: #050d1a;
+
+            border-bottom:
+                1px solid var(--border);
+
+            padding:
+                18px 6%;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
         }
 
+
         .header-left {
+
             display: flex;
+
             align-items: center;
+
             gap: 16px;
         }
 
-        .gensec-logo {
+
+        .gensec {
+
             width: 65px;
+
             height: 65px;
+
             object-fit: contain;
         }
 
+
         .site-title {
-            color: #f0f0f0;
+
+            color: #ffffff;
+
             font-size: 18px;
+
             font-weight: 600;
+
             letter-spacing: 3px;
         }
 
+
         .site-subtitle {
-            color: #6f7781;
+
+            color: var(--text-dim);
+
             font-size: 10px;
+
             letter-spacing: 2px;
+
             margin-top: 5px;
         }
 
+
         .clearance {
-            border: 1px solid #285bc2;
-            color: #6e98ec;
-            padding: 9px 14px;
+
+            border:
+                1px solid var(--gensec-blue);
+
+            color: var(--gensec-light);
+
+            padding:
+                9px 14px;
+
             font-size: 10px;
+
             letter-spacing: 2px;
         }
 
-        /* =========================
+
+        /* =====================================================
            NAVIGATION
-        ========================= */
+        ===================================================== */
 
         nav {
-            background: #090b0e;
-            border-bottom: 1px solid #20252b;
+
+            background: #050d1a;
+
+            border-bottom:
+                1px solid var(--border);
+
             padding: 0 6%;
         }
 
+
         nav ul {
+
             display: flex;
+
             list-style: none;
         }
 
+
         nav a {
+
             display: block;
-            color: #69717b;
+
+            color: var(--text-dim);
+
             text-decoration: none;
+
             font-size: 11px;
+
             letter-spacing: 1.5px;
-            padding: 15px 22px;
-            transition: 0.2s;
+
+            padding:
+                15px 22px;
+
+            transition:
+                0.2s;
         }
+
 
         nav a:hover {
-            color: white;
-            background: #11151a;
+
+            color: #ffffff;
+
+            background: #102542;
         }
+
 
         nav a.active {
-            color: white;
-            background: #13171c;
-            border-bottom: 2px solid #2d63cf;
+
+            color: #ffffff;
+
+            background: #0c1b32;
+
+            border-bottom:
+                2px solid var(--gensec-blue);
         }
 
-        /* =========================
-           MAIN
-        ========================= */
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
 
         main {
+
             width: 88%;
+
             max-width: 1150px;
-            margin: 45px auto 80px;
+
+            margin:
+                45px auto 80px;
         }
 
+
         .classification {
-            color: #4f80dc;
+
+            color: var(--gensec-light);
+
             font-size: 10px;
+
             letter-spacing: 3px;
+
             margin-bottom: 8px;
         }
 
+
         h1 {
+
             color: #f1f1f1;
+
             font-size: 34px;
+
             font-weight: 400;
+
             letter-spacing: 1px;
         }
 
+
         .codename {
-            color: #6d94df;
+
+            color: var(--gensec-light);
+
             font-size: 13px;
+
             margin-top: 5px;
+
             letter-spacing: 2px;
         }
 
+
         .intro {
-            color: #737b84;
+
+            color: var(--text-secondary);
+
             font-size: 13px;
+
             line-height: 1.8;
+
             max-width: 800px;
+
             margin-top: 14px;
         }
 
+
         .divider {
+
             width: 100%;
+
             height: 1px;
-            background: #242a31;
-            margin: 30px 0;
+
+            background:
+                var(--border);
+
+            margin:
+                30px 0;
         }
 
-        /* =========================
+
+        /* =====================================================
            SECTIONS
-        ========================= */
+        ===================================================== */
 
         .section {
-            border: 1px solid #252b32;
-            background: #0d1014;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--bg-panel);
+
             margin-bottom: 25px;
         }
 
+
         .section-header {
-            background: #11151a;
-            border-bottom: 1px solid #252b32;
-            padding: 17px 22px;
+
+            background:
+                var(--bg-header);
+
+            border-bottom:
+                1px solid var(--border);
+
+            padding:
+                17px 22px;
+
             display: flex;
+
             align-items: center;
+
             gap: 13px;
         }
 
+
         .section-number {
-            color: #3266ca;
+
+            color:
+                var(--gensec-blue);
+
             font-size: 11px;
+
             font-weight: bold;
         }
 
+
         .section-header h2 {
-            color: #e7e8ea;
+
+            color:
+                #e7e8ea;
+
             font-size: 14px;
+
             font-weight: 500;
+
             letter-spacing: 2px;
         }
 
+
         .section-content {
+
             padding: 25px;
         }
 
-        /* =========================
+
+        /* =====================================================
            OPINIONS
-        ========================= */
+        ===================================================== */
 
         .opinion {
-            border-left: 3px solid #285bc2;
-            background: #090c10;
+
+            border-left:
+                3px solid var(--gensec-blue);
+
+            background:
+                var(--bg-card);
+
             padding: 20px;
+
             margin-bottom: 15px;
+
+            transition:
+                0.2s;
         }
 
+
+        .opinion:hover {
+
+            border-left-color:
+                var(--gensec-light);
+
+            background:
+                #07162a;
+        }
+
+
         .opinion:last-child {
+
             margin-bottom: 0;
         }
 
+
         .opinion-title {
-            color: #6d94e4;
+
+            color:
+                var(--gensec-light);
+
             font-size: 10px;
+
             letter-spacing: 2px;
+
             margin-bottom: 9px;
         }
 
+
         .opinion p {
-            color: #b9bec4;
+
+            color:
+                #b9c7d9;
+
             font-size: 13px;
+
             line-height: 1.8;
         }
 
-        /* =========================
+
+        /* =====================================================
            COMMUNICATIONS
-        ========================= */
+        ===================================================== */
 
         .communication {
-            background: #090c10;
-            border: 1px solid #242a31;
+
+            background:
+                var(--bg-card);
+
+            border:
+                1px solid var(--border);
+
             padding: 20px;
+
             margin-bottom: 13px;
         }
 
+
         .communication:last-child {
+
             margin-bottom: 0;
         }
 
+
         .communication-header {
+
             display: flex;
+
             justify-content: space-between;
-            border-bottom: 1px solid #1e242a;
+
+            border-bottom:
+                1px solid #162b4b;
+
             padding-bottom: 10px;
+
             margin-bottom: 14px;
         }
 
+
         .communication-type {
-            color: #5f8bdf;
+
+            color:
+                var(--gensec-light);
+
             font-size: 10px;
+
             letter-spacing: 2px;
         }
 
+
         .communication-status {
-            color: #626a74;
+
+            color:
+                var(--text-dim);
+
             font-size: 9px;
+
             letter-spacing: 1.5px;
         }
 
+
         .communication p {
-            color: #aeb4bb;
+
+            color:
+                #aebbd0;
+
             font-size: 13px;
+
             line-height: 1.8;
         }
 
-        /* =========================
+
+        /* =====================================================
            RELATIONS
-        ========================= */
+        ===================================================== */
 
         .relation {
-            background: #090c10;
-            border: 1px solid #252b32;
+
+            background:
+                var(--bg-card);
+
+            border:
+                1px solid var(--border);
+
             margin-bottom: 15px;
+
             padding: 22px;
+
             position: relative;
+
             overflow: hidden;
+
+            transition:
+                0.2s;
         }
 
-        .relation:last-child {
-            margin-bottom: 0;
+
+        .relation:hover {
+
+            background:
+                #07162a;
+
+            border-color:
+                #28518c;
         }
+
 
         .relation::before {
+
             content: "";
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 3px;
+
             height: 100%;
-            background: #285bc2;
+
+            background:
+                var(--gensec-blue);
         }
 
+
         .relation-name {
-            color: #f0f0f0;
+
+            color:
+                #f0f0f0;
+
             font-size: 17px;
+
             letter-spacing: 1px;
+
             margin-bottom: 5px;
         }
 
+
         .relation-role {
-            color: #638bd8;
+
+            color:
+                var(--gensec-light);
+
             font-size: 9px;
+
             letter-spacing: 2px;
+
             margin-bottom: 16px;
         }
 
+
         .relation-quote {
-            color: #c0c4c9;
+
+            color:
+                #c0ccdc;
+
             font-size: 14px;
+
             font-style: italic;
+
             line-height: 1.9;
+
             padding-left: 5px;
         }
 
+
         .quote-mark {
-            color: #285bc2;
+
+            color:
+                var(--gensec-blue);
+
             font-size: 24px;
+
             font-weight: bold;
+
             vertical-align: top;
+
             margin-right: 5px;
         }
 
-        /* =========================
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
-            border-top: 1px solid #242930;
-            background: #080a0d;
-            padding: 25px 6%;
-            color: #535b64;
+
+            border-top:
+                1px solid var(--border);
+
+            background:
+                #030812;
+
+            padding:
+                25px 6%;
+
+            color:
+                var(--text-dim);
+
             font-size: 9px;
+
             letter-spacing: 1.5px;
         }
 
+
         .footer-content {
+
             max-width: 1150px;
+
             margin: auto;
+
             display: flex;
+
             justify-content: space-between;
         }
 
+
         .footer-warning {
-            color: #747c85;
+
+            color:
+                #64748a;
         }
 
-        /* =========================
+
+        /* =====================================================
            MOBILE
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 700px) {
 
             header {
-                padding: 15px 4%;
+
+                padding:
+                    15px 4%;
             }
 
-            .gensec-logo {
+
+            .gensec {
+
                 width: 50px;
+
                 height: 50px;
             }
 
+
             .site-title {
+
                 font-size: 14px;
             }
 
+
             .clearance {
+
                 display: none;
             }
 
+
             nav {
-                padding: 0 3%;
+
+                padding:
+                    0 3%;
+
                 overflow-x: auto;
             }
 
+
             nav ul {
-                min-width: max-content;
+
+                min-width:
+                    max-content;
             }
+
 
             nav a {
-                padding: 14px;
+
+                padding:
+                    14px;
             }
+
 
             main {
+
                 width: 92%;
-                margin-top: 30px;
+
+                margin-top:
+                    30px;
             }
 
+
             h1 {
+
                 font-size: 27px;
             }
 
+
             .section-content {
-                padding: 17px;
+
+                padding:
+                    17px;
             }
 
+
             .footer-content {
-                flex-direction: column;
-                gap: 10px;
+
+                flex-direction:
+                    column;
+
+                gap:
+                    10px;
             }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
-         SECURITY BAR
-    ========================= -->
+
+    <!-- =====================================================
+         TOP SECURITY BAR
+    ====================================================== -->
 
     <div class="security-bar"></div>
 
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+    <!-- =====================================================
+         SITE HEADER
+    ====================================================== -->
 
     <header>
 
         <div class="header-left">
 
-            <!--
-                Put the circular GENSEC logo here:
-                images/gensec-logo.png
-            -->
-
             <img
-                src="images/gensec-logo.png"
+                src="images/gensec.png"
                 alt="GENSEC Logo"
-                class="gensec-logo"
+                class="gensec"
             >
 
             <div>
@@ -444,12 +783,13 @@
                 </div>
 
                 <div class="site-subtitle">
-                    PERSONNEL RELATIONS DATABASE
+                    PERSONNEL DATABASE
                 </div>
 
             </div>
 
         </div>
+
 
         <div class="clearance">
             CLEARANCE LEVEL 3
@@ -458,9 +798,9 @@
     </header>
 
 
-    <!-- =========================
+    <!-- =====================================================
          NAVIGATION
-    ========================= -->
+    ====================================================== -->
 
     <nav>
 
@@ -479,7 +819,10 @@
             </li>
 
             <li>
-                <a href="relations.html" class="active">
+                <a
+                    href="relations.html"
+                    class="active"
+                >
                     RELATIONS
                 </a>
             </li>
@@ -489,36 +832,43 @@
     </nav>
 
 
-    <!-- =========================
+    <!-- =====================================================
          MAIN
-    ========================= -->
+    ====================================================== -->
 
     <main>
+
 
         <div class="classification">
             GENSEC DEPARTMENT LEADERSHIP // INTERNAL RECORD
         </div>
 
+
         <h1>
             Rios Belmont
         </h1>
+
 
         <div class="codename">
             1LT // "FELWINTER"
         </div>
 
+
         <p class="intro">
-            Supplemental personnel documentation concerning the personal
-            opinions, communications and interpersonal relationships of
-            Rios Belmont, currently assigned to GENSEC Department Leadership
-            at Site-66.
+
+            Supplemental personnel documentation concerning the
+            opinions, communications, and interpersonal relationships
+            of Rios Belmont, currently assigned to GENSEC Department
+            Leadership at Site-66.
+
         </p>
+
 
         <div class="divider"></div>
 
 
         <!-- =====================================================
-             SECTION 01 — OPINIONS
+             01 — OPINIONS
         ====================================================== -->
 
         <section class="section">
@@ -535,7 +885,9 @@
 
             </div>
 
+
             <div class="section-content">
+
 
                 <div class="opinion">
 
@@ -544,13 +896,15 @@
                     </div>
 
                     <p>
-                        Belmont is known for being exceptionally direct in
-                        expressing his opinions. He has little tolerance for
-                        unnecessary formalities and will frequently speak his
-                        mind regardless of rank or potential consequences.
+                        'Felwinter' is known for being exceptionally direct
+                        in expressing his opinions. He has little
+                        tolerance for unnecessary formalities and will
+                        frequently speak his mind regardless of rank or
+                        potential consequences.
                     </p>
 
                 </div>
+
 
                 <div class="opinion">
 
@@ -559,13 +913,14 @@
                     </div>
 
                     <p>
-                        His approach to leadership is heavily influenced by
-                        his own experiences. Belmont places considerable value
-                        on mentorship, loyalty and proving oneself through
-                        action rather than words.
+                        His approach to leadership is heavily influenced
+                        by his own experiences. 'Felwinter' places considerable
+                        value on mentorship, loyalty, and proving oneself
+                        through action rather than words.
                     </p>
 
                 </div>
+
 
                 <div class="opinion">
 
@@ -574,14 +929,14 @@
                     </div>
 
                     <p>
-                        Belmont appears to believe that those under his
-                        guidance should eventually surpass him. His tendency
-                        to mentor younger personnel suggests that he considers
-                        experience something that should be passed down rather
-                        than retained.
+                        'Felwinter' appears to believe that those under his
+                        guidance should eventually surpass him. His
+                        tendency to mentor younger personnel that have a similiar 
+                        personality to him is something that should be monitored.
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -589,7 +944,7 @@
 
 
         <!-- =====================================================
-             SECTION 02 — COMMUNICATIONS
+             02 — COMMUNICATIONS
         ====================================================== -->
 
         <section class="section">
@@ -606,7 +961,9 @@
 
             </div>
 
+
             <div class="section-content">
+
 
                 <div class="communication">
 
@@ -622,11 +979,13 @@
 
                     </div>
 
+
                     <p>
-                        Belmont maintains a direct communication style with
-                        personnel under his command. While often abrasive,
-                        his communications generally indicate a desire to
-                        prepare personnel for increased responsibility.
+                        'Felwinter' maintains a direct communication style
+                        with personnel he cares about. While often
+                        abrasive, his communications generally indicate
+                        a desire to prepare personnel for increased
+                        responsibility.
                     </p>
 
                 </div>
@@ -646,38 +1005,17 @@
 
                     </div>
 
+
                     <p>
                         Multiple personnel appear to maintain mentorship
-                        relationships with Belmont. His communications with
-                        these individuals frequently contain advice regarding
-                        leadership, responsibility and the development of
-                        future GENSEC command staff.
+                        relationships with Belmont. His communications
+                        with these individuals frequently contain advice
+                        regarding leadership, responsibility, and the
+                        development of future GENSEC command staff.
                     </p>
 
                 </div>
 
-
-                <div class="communication">
-
-                    <div class="communication-header">
-
-                        <span class="communication-type">
-                            PERSONAL // ARCHIVED
-                        </span>
-
-                        <span class="communication-status">
-                            LEVEL 3
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Several personal statements have been retained within
-                        this record due to their relevance to Belmont's
-                        interpersonal relationships and psychological profile.
-                    </p>
-
-                </div>
 
             </div>
 
@@ -685,7 +1023,7 @@
 
 
         <!-- =====================================================
-             SECTION 03 — RELATIONS
+             03 — RELATIONS
         ====================================================== -->
 
         <section class="section">
@@ -701,6 +1039,7 @@
                 </h2>
 
             </div>
+
 
             <div class="section-content">
 
@@ -718,8 +1057,13 @@
                     </div>
 
                     <div class="relation-quote">
-                        <span class="quote-mark">"</span>
+
+                        <span class="quote-mark">
+                            "
+                        </span>
+
                         My mentor, the person who I look to for guidance.
+
                     </div>
 
                 </div>
@@ -734,14 +1078,19 @@
                     </div>
 
                     <div class="relation-role">
-                        BROTHER // TRUSTED ASSOCIATE
+                        CLOSE FRIEND // TRUSTED ASSOCIATE
                     </div>
 
                     <div class="relation-quote">
-                        <span class="quote-mark">"</span>
-                        You've been at my side despite how hard I try and
-                        push you away... preciate it brother, one day we'll
-                        take a tour round Canada.
+
+                        <span class="quote-mark">
+                            "
+                        </span>
+
+                        You've been at my side despite how hard I try
+                        and push you away... preciate it brother, one
+                        day we'll take a tour round Canada.
+
                     </div>
 
                 </div>
@@ -760,10 +1109,16 @@
                     </div>
 
                     <div class="relation-quote">
-                        <span class="quote-mark">"</span>
-                        You remind me of me, a younger me who isn't as bitter.
-                        I'll mentor you best I can, kid. Look after Mercer,
-                        he'll be a great Co-Lead. Mentor him as I did you.
+
+                        <span class="quote-mark">
+                            "
+                        </span>
+
+                        You remind me of me, a younger me who isn't as
+                        bitter. I'll mentor you best I can, kid. Look
+                        after Mercer, he'll be a great Co-Lead. Mentor
+                        him as I did you.
+
                     </div>
 
                 </div>
@@ -782,10 +1137,16 @@
                     </div>
 
                     <div class="relation-quote">
-                        <span class="quote-mark">"</span>
-                        You got a spark of tenacity, remind me of myself as
-                        well. Look after Aquila and he'll look after you.
-                        You'll be a great Vanguard Co-Lead and eventually Lead.
+
+                        <span class="quote-mark">
+                            "
+                        </span>
+
+                        You got a spark of tenacity, remind me of myself
+                        as well. Look after Aquila and he'll look after
+                        you. You'll be a great Vanguard Co-Lead and
+                        eventually Lead.
+
                     </div>
 
                 </div>
@@ -804,23 +1165,30 @@
                     </div>
 
                     <div class="relation-quote">
-                        <span class="quote-mark">"</span>
-                        I owe you a life debt. You ever need anything at all,
-                        I've got your back. Thank you...
+
+                        <span class="quote-mark">
+                            "
+                        </span>
+
+                        I owe you a life debt. You ever need anything
+                        at all, I've got your back. Thank you...
+
                     </div>
 
                 </div>
+
 
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================= -->
+    ====================================================== -->
 
     <footer>
 
@@ -837,6 +1205,7 @@
         </div>
 
     </footer>
+
 
 </body>
 </html>
